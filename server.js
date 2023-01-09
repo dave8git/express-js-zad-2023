@@ -27,8 +27,9 @@ app.get('/about', (req, res) => {
     res.show('about.html');
 });
 
-app.get('/user/*', (req, res) => {
-    res.show('forbidden.html')
+app.use('/user', (req, res, next) => {
+    res.show('forbidden.html');
+    next();
 });
 
 app.get('/public/404', (req, res) => {
