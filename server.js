@@ -27,12 +27,8 @@ app.get('/about', (req, res) => {
     res.show('about.html');
 });
 
-app.get('/user/settings', (req, res) => {
+app.get('/user/*', (req, res) => {
     res.show('forbidden.html')
-});
-
-app.get('/user/panel', (req, res) => {
-    res.show('forbidden.html');
 });
 
 app.get('/public/404', (req, res) => {
