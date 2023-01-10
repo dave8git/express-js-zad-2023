@@ -10,13 +10,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    res.login = (name) => {
-        res.sendFile(path.join(__dirname, `/views/${name}`));
-    };
-    next();
-});
-
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', (req, res) => {
@@ -29,7 +22,6 @@ app.get('/about', (req, res) => {
 
 app.use('/user', (req, res, next) => {
     res.show('forbidden.html');
-    next();
 });
 
 app.get('/public/404', (req, res) => {
